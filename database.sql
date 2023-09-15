@@ -2,7 +2,7 @@ CREATE TABLE "list"(
     "id" serial primary key not null,
     "task" varchar(250) not null,
     -- Not null makes the value required
-    "completed" boolean not null default false
+    "completed" boolean not null
 );
 
 

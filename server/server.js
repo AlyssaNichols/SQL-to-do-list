@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 5000;
-const listRouter = require('./routes/toDo.router')
+const listRouter = require('./routes/list.router')
 
 app.use(express.static('server/public'));
 app.use(express.urlencoded({ extended: true }));
