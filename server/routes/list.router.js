@@ -49,15 +49,15 @@ listRouter.put("/:id", (req, res) => {
     const item = req.body;
     console.log(req.body);
     let queryText;
-    console.log("UPDATE item in /koala with id:", id);
-    queryText = `UPDATE "koalas" SET "ready" = ${koala.ready} WHERE "id" = $1;`;
+    console.log("UPDATE item in /list with id:", id);
+    queryText = `UPDATE "list" SET "completed" = ${item.completed} WHERE "id" = $1;`;
     console.log("querytext for true or false", queryText);
     pool.query(queryText, [id])
     .then(() => {
         res.sendStatus(204); // 204 no content
       })
       .catch((err) => {
-        console.log("error in UPDATING koala from koalas table", err);
+        console.log("error in UPDATING item from list table", err);
         res.sendStatus(500);
     });
 })
