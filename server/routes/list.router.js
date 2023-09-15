@@ -64,7 +64,20 @@ listRouter.put("/:id", (req, res) => {
 
 // DELETE route
 
-
+listRouter.delete("/:id", (req, res) => {
+    const id = req.params.id;
+    console.log("DELETE route /list with id of:", id);
+    const queryText = `DELETE FROM "list" WHERE "id" = $1;`
+    pool
+    .query(queryText, [id])
+    .then(() => {
+        res.sendStatus(204); // 204 no content
+      })
+    .catch((err) => {
+        console.log("error in DELETing item from list table", err);
+        res.sendStatus(500);
+    });
+})
 
 
 
