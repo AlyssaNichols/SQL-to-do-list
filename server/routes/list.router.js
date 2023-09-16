@@ -9,7 +9,7 @@ const pool = require("../modules/pool");
 
 listRouter.get("/", (req, res) =>{
     console.log('GET request made to /list/');
-    const queryText = `SELECT * FROM "list" ORDER BY "id" ASC;`;
+    const queryText = `SELECT * FROM "list" ORDER BY "id" DESC;`;
     pool
     .query(queryText)
     .then((response)=> res.send(response.rows))

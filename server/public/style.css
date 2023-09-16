@@ -2,9 +2,12 @@
 body{
     font-family: Montserrat, sans-serif;
     background-color: rgb(192, 201, 210);
-    font-size: 18px;
+    font-size: 16px;
 }
 
+th{
+    font-weight: bold;
+}
 .deleteButton {
     background-color: #ec8383;
     color: black;
@@ -12,6 +15,7 @@ body{
     border-radius: 3px;
     padding: 5px 10px;
     cursor: pointer;
+    font-size: 14px;
 }
 .completedButton {
     background-color: #74bda0;
@@ -20,6 +24,7 @@ body{
     border-radius: 3px;
     padding: 5px 10px;
     cursor: pointer;
+    font-size: 14px;
 }
 
 table, th, td {
@@ -69,6 +74,7 @@ h1{
         padding: 4px 10px;
         cursor: pointer;
         margin-top: 3px;
+        font-size: 14px;
 }
 
 input[type="text"] {
