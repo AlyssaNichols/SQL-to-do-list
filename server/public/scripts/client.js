@@ -22,26 +22,34 @@ function getList() {
 }
 
 function appendDom(data) {
-    $("#listItems").empty();
-  
-    for (let i = 0; i < data.length; i += 1) {
-      let task = data[i];
-      let completedClass = task.completed ? "completed" : ""; // Add this line
-  
-      // For each task, append a new row to our table with the appropriate class
-      $("#listItems").append(`
+  $("#listItems").empty();
+
+  for (let i = 0; i < data.length; i += 1) {
+    let task = data[i];
+    let completedClass;
+    if (task.completed) {
+      completedClass = "completed";
+    } else {
+      completedClass = "";
+    }
+
+    // For each task, append a new row to our table with the appropriate class
+    $("#listItems").append(`
         <tr>
           <td class="${completedClass}">${task.task}</td>
           <td>${task.completed}</td>
-          <td><button class="completedButton" data-id=${task.id} data-completed=${task.completed}>
+          <td><button class="completedButton" data-id=${
+            task.id
+          } data-completed=${task.completed}>
             ${task.completed ? "Not Completed" : "Completed"}
           </button></td>
-          <td><button class="deleteButton" data-id=${task.id}>Delete</button></td>
+          <td><button class="deleteButton" data-id=${
+            task.id
+          }>Delete</button></td>
         </tr>
       `);
-    }
   }
-  
+}
 
 function postItem() {
   let task = $("#taskIn").val();
@@ -51,6 +59,7 @@ function postItem() {
     task: task,
     completed: completed,
   };
+  console.log(taskToSend);
 
   if (!task || !completed) {
     alert("Please fill in all of the fields and try again!");

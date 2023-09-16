@@ -27,12 +27,12 @@ listRouter.post("/", (req, res) => {
     let queryText = `INSERT INTO "list" ("task", "completed")
     VALUES ($1, $2);`;
     // backend validation
-    // if (!listItem.task || !listItem.completed){
-    //     res.sendStatus(400);
-    //     return
-    // };
+    if (!item.task || !item.completed){
+        res.sendStatus(400);
+        return
+    };
     pool
-    .query(queryText, [item.task, Boolean(item.completed)])
+    .query(queryText, [item.task, item.completed])
     .then((result) => {
         res.sendStatus(201);
     })
