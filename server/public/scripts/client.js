@@ -35,8 +35,8 @@ function appendDom(data) {
 
     // For each task, append a new row to our table with the appropriate class
     $("#listItems").append(`
-        <tr>
-          <td class="${completedClass}">${task.task}</td>
+        <tr class="${completedClass}">
+          <td>${task.task}</td>
           <td>${task.completed}</td>
           <td><button class="completedButton" data-id=${
             task.id

@@ -1,3 +1,55 @@
-.completed{
-    background-color: green;
+
+body{
+    font-family: Montserrat, sans-serif;
+    background-color: rgb(209, 219, 230);
 }
+
+.deleteButton {
+    background-color: #ec8383;
+    color: black;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.completedButton {
+    background-color: #74bda0;
+    color: black;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+table, th, td {
+    border: 1px solid;
+  }
+
+  tr:nth-child(even), th {
+    background-color: rgb(201, 200, 197);
+  }
+  tr:nth-child(odd) {
+    background-color: rgb(222, 222, 222);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+  }
+
+#imageId{
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4LFtcVl2JMh_pfSTPDUWnN0_-lFlHukCf2w&usqp=CAU);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: right;
+
+  }
+
+  .completed{
+    background-color: #74bda0 !important;
+    text-decoration: line-through !important;
+}
+
+
+  
