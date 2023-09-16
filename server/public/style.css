@@ -1,7 +1,8 @@
 
 body{
     font-family: Montserrat, sans-serif;
-    background-color: rgb(209, 219, 230);
+    background-color: rgb(192, 201, 210);
+    font-size: 18px;
 }
 
 .deleteButton {
@@ -38,18 +39,49 @@ table, th, td {
     text-align: center;
   }
 
-#imageId{
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4LFtcVl2JMh_pfSTPDUWnN0_-lFlHukCf2w&usqp=CAU);
-    background-size:contain;
-    background-repeat: no-repeat;
-    background-position: right;
-
-  }
-
   .completed{
     background-color: #74bda0 !important;
     text-decoration: line-through !important;
 }
+
+#addItem, h1, h2{
+    text-align: center;
+}
+
+h1{
+    background-color: rgb(201, 200, 197);
+    width: 40%;
+    border: 1px solid rgb(222, 222, 222);
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#completedIn{
+    margin-top: 3px;
+    width: 90px;
+}
+#addButton{
+        background-color: rgb(201, 200, 197);
+        color: black;
+        border: 1px solid black;
+        border-radius: 3px;
+        padding: 4px 10px;
+        cursor: pointer;
+        margin-top: 3px;
+}
+
+input[type="text"] {
+    width: 120px;
+    padding: 3px;
+    background-color: rgb(232, 230, 230);
+    text-transform: capitalize;
+    border: 1px solid black;
+    border-radius: 3px;
+    text-align: center;
+  }
+
+
 
 
   

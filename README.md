@@ -3,7 +3,7 @@
 
 ## The To-Do App
 
-You are going to create a 'TO DO' application. This type of application is very common to tackle when learning a new language, which makes it extremely valuable to work through for the first time. Chances are good that at some point in your career you will tackle this again while learning another language.
+You are going to create a 'TO DO' application. 
 
 **Here are the specific components for the challenge:**
 
@@ -24,11 +24,11 @@ Use CSS styling to move the aesthetic of the page beyond the vanilla HTML look:
 
 ### Create a Database
 
-Be sure to create a new database through Postico. Use the name `weekend-to-do-app`. You will need to use this name in your database connection configuration on your server.
+Create a new database with the name `weekend-to-do-app`. 
 
 ### Database Structure
 
-Please include a `database.sql` text file in your repo that includes all of your `CREATE TABLE` queries. This is so we can re-create your database while testing your app.
+Included a `database.sql` text file in the repo that includes all of the `CREATE TABLE` queries. This is so we can re-create your database while testing your app.
 
 ## Stretch Goals
 
@@ -36,15 +36,15 @@ For each of your strech goals, you will be practicing git branching. Please refe
 
 - `feature-styling-bootstrap` 
 
-    - [ ]  Add Bootstrap to the front end and style it up!
-      -  Buttons -- make the creation buttons and completion buttons green and the delete red.
+    - [ x] Buttons -- make the creation buttons and completion buttons green and the delete red.
       -  Inputs -- make your text inputs styled in the bootstrap way
       -  Responsive -- make your app responsive to different screen sizes -- check out the [Layout](https://getbootstrap.com/docs/4.1/layout/overview/) section
 
 - `feature-confirm-delete`
 
-    - [ ]  In whatever fashion you would like, create an 'are you sure: yes / no' option when deleting a task.
-        - Some styled options are [Bootstrap Modal](https://getbootstrap.com/docs/4.0/components/modal/) or [Sweet Alerts](https://sweetalert.js.org/guides/): Use the CDN option.
+    - [ x]  In whatever fashion you would like, create an 'are you sure: yes / no' option when deleting a task.
+    Used [Sweet Alerts](https://sweetalert.js.org/guides/): 
+    Did this right away so a branch wasnt made
 
 - `feature-ordering-task-query` 
 
