@@ -35,7 +35,7 @@ function appendDom(data) {
 
     // For each task, append a new row to our table with the appropriate class
     $("#listItems").append(`
-        <tr class="${completedClass}">
+        <tr class="${completedClass} row">
           <td>${task.task}</td>
           <td>${task.completed}</td>
           <td><button class="completedButton" data-id=${
@@ -125,3 +125,4 @@ const deleteItem = (event) => {
     .then(() => getList())
     .catch((err) => console.log(err));
 }; // end of deleteItem
+
