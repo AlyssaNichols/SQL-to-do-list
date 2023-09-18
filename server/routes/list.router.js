@@ -6,9 +6,9 @@ const pool = require("../modules/pool");
 
 
 // GET route
-
 listRouter.get("/", (req, res) =>{
     console.log('GET request made to /list/');
+    // want the order to have the new items added to the top
     const queryText = `SELECT * FROM "list" ORDER BY "id" DESC;`;
     pool
     .query(queryText)
@@ -20,10 +20,10 @@ listRouter.get("/", (req, res) =>{
 });
 
 // POST route
-
 listRouter.post("/", (req, res) => {
     let item = req.body;
     console.log("POST REQUEST adding list item:", item);
+    // sanitize the data
     let queryText = `INSERT INTO "list" ("task", "completed")
     VALUES ($1, $2);`;
     // backend validation
@@ -44,12 +44,14 @@ listRouter.post("/", (req, res) => {
 })
 
 // PUT route
+// using id as param
 listRouter.put("/:id", (req, res) => {
     const id = req.params.id;
     const item = req.body;
     console.log(req.body);
     let queryText;
     console.log("UPDATE item in /list with id:", id);
+    // sanitize the data and allow update to the "true or false" of item completed
     queryText = `UPDATE "list" SET "completed" = ${item.completed} WHERE "id" = $1;`;
     console.log("querytext for true or false", queryText);
     pool.query(queryText, [id])
@@ -63,10 +65,11 @@ listRouter.put("/:id", (req, res) => {
 })
 
 // DELETE route
-
+// using id as param
 listRouter.delete("/:id", (req, res) => {
     const id = req.params.id;
     console.log("DELETE route /list with id of:", id);
+    // sanitize data
     const queryText = `DELETE FROM "list" WHERE "id" = $1;`
     pool
     .query(queryText, [id])
@@ -81,5 +84,5 @@ listRouter.delete("/:id", (req, res) => {
 
 
 
-//export router
+//export router- keep at bottom
 module.exports = listRouter;

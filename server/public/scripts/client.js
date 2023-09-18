@@ -3,11 +3,13 @@ $(onReady);
 function onReady() {
   console.log("jq and js");
   getList();
+  // add click listeners with corresponding function
   $("#listItems").on("click", ".deleteButton", deleteSwal);
   $("#addButton").on("click", postItem);
   $("#listItems").on("click", ".completedButton", updateItem);
 }
 
+// ajax get function to /list
 function getList() {
   console.log("in getList");
   // ajax call to server to get list items
@@ -21,19 +23,25 @@ function getList() {
     .catch((err) => console.log(err));
 }
 
+// append dom
 function appendDom(data) {
+ // empty the table body so multiples arent added everytime the add button is clicked
   $("#listItems").empty();
-
+// loop through array (will be the response from the server side)
+//using data as a param
   for (let i = 0; i < data.length; i += 1) {
     let task = data[i];
+    // using completedClass variable to update so I am able to update the color of the
+    //  background when task is completed
     let completedClass;
     if (task.completed) {
       completedClass = "completed";
     } else {
       completedClass = "";
     }
-
     // For each task, append a new row to our table with the appropriate class
+    // using the completed class variable for background color change
+    // using ternanry for button that can switch back and forth from completed to not completed
     $("#listItems").append(`
         <tr class="${completedClass} row">
           <td>${task.task}</td>
@@ -51,23 +59,27 @@ function appendDom(data) {
   }
 }
 
+// ajax POST function
 function postItem() {
+    // gather values from inputs
   let task = $("#taskIn").val();
   let completed = $("#completedIn").val();
   console.log("in postItem on add button click");
+  // new object to send in ajax post function
   let taskToSend = {
     task: task,
     completed: completed,
   };
   console.log(taskToSend);
-
+// making sure all fields are filled in otherwise will alert client
   if (!task || !completed) {
     alert("Please fill in all of the fields and try again!");
     return;
   }
+  // empty out input fields after info is gathered
   $("#taskIn").val("");
   $("#completedIn").val("");
-
+// POST to /list
   $.ajax({
     method: "POST",
     url: "/list",
@@ -77,7 +89,9 @@ function postItem() {
     .catch((err) => console.log(err));
 }
 
+// PUT ajax function
 function updateItem(event) {
+    // get id and completed data attributes
   const id = $(event.target).data("id");
   const completed = $(event.target).data("completed");
   console.log(id, completed);
@@ -95,6 +109,7 @@ function updateItem(event) {
     });
 }
 
+// sweet alert function for delete, calls original delete function 
 function deleteSwal(event) {
   swal({
     title: "Are you sure?",
@@ -116,6 +131,8 @@ function deleteSwal(event) {
   });
 }
 
+// this is the delete function that is called in the sweet alert
+// otherwise the sweet alert would override this function
 const deleteItem = (event) => {
   const id = $(event.target).data("id");
   $.ajax({
@@ -124,5 +141,5 @@ const deleteItem = (event) => {
   })
     .then(() => getList())
     .catch((err) => console.log(err));
-}; // end of deleteItem
+}; 
 

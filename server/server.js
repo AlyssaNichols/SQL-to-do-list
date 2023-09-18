@@ -6,7 +6,7 @@ const listRouter = require('./routes/list.router')
 app.use(express.static('server/public'));
 app.use(express.urlencoded({ extended: true }));
 
-// using the router
+// using the router listRouter
 app.use('/list', listRouter)
 
 
