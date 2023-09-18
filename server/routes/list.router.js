@@ -48,13 +48,13 @@ listRouter.post("/", (req, res) => {
 listRouter.put("/:id", (req, res) => {
     const id = req.params.id;
     const item = req.body;
-    console.log(req.body);
+    console.log(item);
     let queryText;
     console.log("UPDATE item in /list with id:", id);
     // sanitize the data and allow update to the "true or false" of item completed
-    queryText = `UPDATE "list" SET "completed" = ${item.completed} WHERE "id" = $1;`;
+    queryText = `UPDATE "list" SET "completed" = $1 WHERE "id" = $2;`;
     console.log("querytext for true or false", queryText);
-    pool.query(queryText, [id])
+    pool.query(queryText, [item.completed, id])
     .then(() => {
         res.sendStatus(204); // 204 no content
       })
