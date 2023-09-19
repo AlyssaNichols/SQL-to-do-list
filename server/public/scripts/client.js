@@ -45,7 +45,6 @@ function appendDom(data) {
     $("#listItems").append(`
         <tr class="${completedClass} row">
           <td>${task.task}</td>
-          <td>${task.completed}</td>
           <td><button class="completedButton" data-id=${
             task.id
           } data-completed=${task.completed}>
