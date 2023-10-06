@@ -9,7 +9,7 @@ const pool = require("../modules/pool");
 listRouter.get("/", (req, res) =>{
     console.log('GET request made to /list/');
     // want the order to have the new items added to the top
-    const queryText = `SELECT * FROM "list" ORDER BY "id" DESC;`;
+    const queryText = `SELECT * FROM "list" ORDER BY "completed" ASC, "id" ASC;`;
     pool
     .query(queryText)
     .then((response)=> res.send(response.rows))
